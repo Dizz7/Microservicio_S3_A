@@ -1,7 +1,7 @@
 package cl.duoc.micro_a.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-// Se importó el modelo Pelicula para poder usarlo en el repositorio
+// Se importó el modelo Usuario para poder usarlo en el repositorio
 import cl.duoc.micro_a.model.Usuario;
 
 
