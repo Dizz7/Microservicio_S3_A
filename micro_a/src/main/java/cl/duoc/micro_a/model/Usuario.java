@@ -25,7 +25,7 @@ public class Usuario {
     private String n_usuario;
     @Column(name = "rol")
     private String rol;
-    @Column(name = "director")
+    @Column(name = "direccion")
     private String direccion;
 
 
