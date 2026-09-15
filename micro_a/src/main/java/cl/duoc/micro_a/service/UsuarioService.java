@@ -1,48 +1,28 @@
 package cl.duoc.micro_a.service;
 
 import org.springframework.stereotype.Service;
-
 import cl.duoc.micro_a.model.Usuario;
-
-import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
-// Lógica del negocio relacionada con los usuarios
+
+
+// Lógica del negocio relacionada con los usuarios, como obtener la lista de usuarios, buscar por ID, etc.
+
+
 @Service
-public class UsuarioService {
-    
-    private List<Usuario> usuarios = new ArrayList<>();
-
-    public UsuarioService() {
-        // Inicializar con algunos usuarios de ejemplo
-        usuarios.add(new Usuario(1, "Oso", "admin", "Los Torneros 123"));
-        usuarios.add(new Usuario(2, "Pelupi", "user", "Avenida Siempre Viva 456"));
-        usuarios.add(new Usuario(3, "Toga", "user", "Huenteno 123"));
-        usuarios.add(new Usuario(4, "Matias", "user", "Bandurrias 789"));
-        usuarios.add(new Usuario(5, "Pajaro", "moderador", "Pedro de Valdivia 321"));
-        usuarios.add(new Usuario(6, "Sebastian", "user", "Marchant Pereira 1400"));
-        usuarios.add(new Usuario(7, "Jose", "user", "San Diego 555"));
-        usuarios.add(new Usuario(8, "Marco", "admin", "Alameda 999"));
-    }
-
+public interface UsuarioService {
     // Métodos para acceder a los usuarios
+        List<Usuario> getAllUsuarios();
 
-    // Obtener todos los usuarios
-    public List<Usuario> getAllUsuarios() {
-        return usuarios;
-    }
+    // Método para obtener un usuario por su ID
+        Optional<Usuario> getUsuarioById(Long id);
 
-
-    // Obtener un usuario por su ID
-    public Usuario getUsuarioById(int id) {
-        return usuarios.stream()
-                .filter(usuario -> usuario.getId() == id)
-                .findFirst()
-                .orElse(null);
-    }
-
-
-
-
+    // Métodos para Crear, Actualizar y Eliminar usuarios
+        Usuario createUsuario(Usuario usuario);
+        Usuario updateUsuario(Long id, Usuario usuario);
+        void deleteUsuario(Long id);
 
 }
+
+
